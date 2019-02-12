@@ -1,0 +1,31 @@
+
+
+    px
+
+    a minimalistic pixel & sprite editor
+
+GOALS
+
+  * Everything that can be controlled via the keyboard, is.
+  * Scriptable.
+  * Anyone who knows vi(m) should feel at home.
+  * No frills. OpenGL all the way down.
+  * Designed with great care and love with pixel artists and animators in mind.
+  * Optimized for advanced users. No hand-holding. Vi-like philosophy.
+  * Small, hackable codebase. The aim is < 10 KLOC with GLFW as the only dependency.
+
+DEPENDENCIES
+
+  * glfw 3.0+ (http://www.glfw.org)
+
+INSTALLING
+
+  make -j4 install
+
+LICENSE
+
+  GPLv3 (see LICENSE file for more details)
+
+COPYRIGHT
+
+  (c) 2018-2019 Alexis Sellier <alexis@cloudhead.io>

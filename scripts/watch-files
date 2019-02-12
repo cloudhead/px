@@ -1,0 +1,2 @@
+#!/bin/sh
+rg --files --type=c --type=cpp . | entr -c scripts/mk /_

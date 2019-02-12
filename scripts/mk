@@ -1,0 +1,11 @@
+#!/bin/sh
+
+result="$(CFLAGS='-fcolor-diagnostics -Werror' make debug -j4 2>&1 1>/dev/null)"
+
+if [ "$?" -ne 0 ]; then
+	echo "$result" | rg -v '^make' | tee errors.err
+	sed -i -r 's/\x1b\[[0-9;]*m?//g' errors.err
+else
+	echo -n > errors.err
+	echo -en "\033[0;32mAll good\033[0m ($(date +%R)) "
+fi

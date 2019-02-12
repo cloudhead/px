@@ -1,0 +1,7 @@
+;;;;;;;;;;;
+;; .pxrc ;;
+;;;;;;;;;;;
+
+p/clear
+window 1024x768
+source db32.palette
