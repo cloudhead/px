@@ -1,5 +1,12 @@
+OS      := $(shell uname -s)
 CC      := clang
-LD      := lld
+LD      := ld
+
+# Use 'lld' if available.
+ifneq (,$(shell which lld))
+  LD := lld
+endif
+
 WARNS   :=                      \
   -Wall                         \
   -Wextra                       \
@@ -25,8 +32,14 @@ MANDIR      ?= $(DATADIR)/man
 CFLAGS      := $(CFLAGS) -O0 -g -msse4.1 -fno-omit-frame-pointer -fstrict-aliasing -pedantic -std=c11 $(WARNS)
 CFLAGS      += $(shell pkg-config --cflags glfw3 glew gl)
 CPPFLAGS    := $(CPPFLAGS) -DDEBUG -DGLEW_STATIC
-LDFLAGS     := $(LDFLAGS) -fuse-ld=$(LD) -lm -lrt
-LDFLAGS     += $(shell pkg-config --libs glfw3 glew gl)
+LDFLAGS     := $(LDFLAGS) -fuse-ld=$(LD) -lm $(shell pkg-config --libs glfw3 glew)
+
+ifeq ($(OS),Darwin)
+  LDFLAGS += -framework OpenGL
+else
+  LDFLAGS += $(shell pkg-config --libs gl)
+endif
+
 INCS        :=
 CSRC        ?= $(wildcard *.c)
 OBJ         := $(CSRC:.c=.o) $(SSRC:.s=.o)
