@@ -35,7 +35,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
-#include <stropts.h>
 #include <math.h>
 #include <errno.h>
 #include <time.h>
