@@ -146,7 +146,6 @@ static void framebuffer_size_callback(GLFWwindow *win, int w, int h)
 	gl_viewport(w, h);
 
 	ctx_setup_ortho(ctx);
-	ctx_win_center(ctx);
 	ctx_update_cursor_pos(ctx);
 
 	if (ctx->on_resize)
@@ -223,7 +222,7 @@ bool ctx_init(struct context *ctx, int w, int h, bool debug)
 
 	glfwWindowHint(GLFW_SAMPLES, 16);
 
-	if ((ctx->win = glfwCreateWindow(w, h, "game", NULL, NULL)) == NULL) {
+	if ((ctx->win = glfwCreateWindow(w, h, "px", NULL, NULL)) == NULL) {
 		return false;
 	}
 	glfwMakeContextCurrent(ctx->win);
