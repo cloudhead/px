@@ -7,7 +7,7 @@
 #include "linmath.h"
 
 #ifndef RESOURCE_PATH
-#define RESOURCE_PATH "resources"
+#define RESOURCE_PATH "assets"
 #endif
 
 struct context;

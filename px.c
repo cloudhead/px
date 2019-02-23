@@ -1234,7 +1234,7 @@ static struct point snap(struct session *, struct point, int, int);
 static struct checker checker(bool active)
 {
 	return (struct checker){
-		.tex    = texture_load("resources/alpha.tga", GL_RGBA),
+		.tex    = texture_load("assets/alpha.tga", GL_RGBA),
 		.active = active,
 	};
 }
@@ -2948,7 +2948,7 @@ static void help_show(struct context *ctx)
 
 static void tools_init(struct tools *tools)
 {
-	tools->texture = texture_load("resources/tools.tga", GL_RGBA);
+	tools->texture = texture_load("assets/tools.tga", GL_RGBA);
 	tools->icons[TOOL_SAMPLER]       = (struct icon){ rect( 0,  0, 16, 16),  0 , 0, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA };
 	tools->icons[TOOL_BRUSH]         = (struct icon){ rect(16, 16, 16, 16), -8, -8, GL_CONSTANT_COLOR, GL_ONE_MINUS_SRC_ALPHA };
 
@@ -2987,7 +2987,7 @@ int main(int argc, char *argv[])
 	ctx_load_program(ctx, "framebuffer", "shaders/framebuffer.vert",    "shaders/framebuffer.frag");
 
 	info("main", "loading font..");
-	if (! load_font(ctx->font, "resources/glyphs.tga", 8, 14)) {
+	if (! load_font(ctx->font, "assets/glyphs.tga", 8, 14)) {
 		ctx_destroy(ctx, "error loading font");
 		return 1;
 	}
